@@ -6,7 +6,7 @@ import { Header } from "../components/ui/Header";
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <MDXProvider components={{ h1: Header.H1, h2: Header.H2 }}>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </MDXProvider>
   );
 };
