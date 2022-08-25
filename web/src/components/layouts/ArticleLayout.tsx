@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { ReactNode } from "react";
-import { ArticleMetadata } from "../../types/article-metadata.model";
+import { ArticleMetadata } from "../../types/article-metadata";
 
 interface ArticleLayoutProps {
   children: ReactNode;
