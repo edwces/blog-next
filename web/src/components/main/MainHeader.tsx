@@ -6,7 +6,7 @@ const navItems = [
     label: "About me",
   },
   {
-    href: "/article",
+    href: "/articles",
     label: "Articles",
   },
 ];

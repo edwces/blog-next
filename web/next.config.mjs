@@ -1,8 +1,12 @@
-const withMDX = require("@next/mdx")({
+import remarkFrontmatter from "remark-frontmatter";
+import rehypeHighlight from "rehype-highlight";
+import defineMDXConfig from "@next/mdx";
+
+const withMDX = defineMDXConfig({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
+    remarkPlugins: [remarkFrontmatter],
+    rehypePlugins: [rehypeHighlight],
     providerImportSource: "@mdx-js/react",
   },
 });
@@ -19,7 +23,7 @@ function defineNextConfig(config) {
   return withMDX(config);
 }
 
-module.exports = defineNextConfig({
+export default defineNextConfig({
   reactStrictMode: true,
   swcMinify: true,
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],

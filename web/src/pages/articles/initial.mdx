@@ -1,0 +1,22 @@
+---
+title: Initial
+description: Not real man
+---
+
+import { ArticleLayout } from "../../components/layouts/ArticleLayout";
+
+I **love** using [Next.js](https://nextjs.org/)
+
+```js
+export const higher = (a) => {
+  return function lower() {
+    return 1 + a;
+  };
+};
+```
+
+export default ({ children }) => (
+  <ArticleLayout meta={{ title: "Initial", description: "Not real" }}>
+    {children}
+  </ArticleLayout>
+);
