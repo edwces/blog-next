@@ -9,11 +9,11 @@ interface ArticleLayoutProps {
 
 export const ArticleLayout = ({ children, meta }: ArticleLayoutProps) => {
   return (
-    <>
+    <section className="p-10">
       <Head>
         <title>{meta.description}</title>
       </Head>
       {children}
-    </>
+    </section>
   );
 };
