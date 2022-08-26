@@ -3,4 +3,5 @@ export interface ArticleMetadata {
   description: string;
   date: string;
   published: boolean;
+  author: string;
 }

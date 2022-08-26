@@ -16,6 +16,7 @@ const Articles: NextPage<ArticlesProps> = ({ articles }) => {
           title={article.title}
           description={article.description}
           date={article.date}
+          author={article.author}
         />
       ))}
     </div>
@@ -24,10 +25,7 @@ const Articles: NextPage<ArticlesProps> = ({ articles }) => {
 
 export const getStaticProps: GetStaticProps<ArticlesProps> = async () => {
   const files = await fs.readdir(process.env.ARTICLES_PATH!);
-  const mdxFiles = files.filter(
-    (filename) => path.extname(filename) === ".mdx"
-  );
-  const articles = mdxFiles.map((filename) => {
+  const articles = files.map((filename) => {
     return matter.read(path.join(process.env.ARTICLES_PATH!, filename))
       .data as ArticleMetadata;
   });
