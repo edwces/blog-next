@@ -3,13 +3,13 @@ import { ArticleMetadata } from "../../types/article-metadata";
 import * as path from "path";
 import matter from "gray-matter";
 import { ArticleLayout } from "../../components/layouts/ArticleLayout";
-import dynamic from "next/dynamic";
 import { getArticleSlugs } from "../../utils/article.utils";
+import dynamic from "next/dynamic";
 
-type ArticleProps = { data: ArticleMetadata; file: string };
+type ArticleProps = { data: ArticleMetadata; name: string };
 
-const Article: NextPage<ArticleProps> = ({ data, file }) => {
-  const MDX = dynamic(() => import("../../articles/initial.mdx"));
+const Article: NextPage<ArticleProps> = ({ data, name }) => {
+  const MDX = dynamic(() => import(`../../articles/${name}.mdx`));
 
   return (
     <ArticleLayout meta={data}>
@@ -19,13 +19,14 @@ const Article: NextPage<ArticleProps> = ({ data, file }) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { data } = matter.read(
-    path.join(process.env.ARTICLES_PATH!, `${params!.slug}.mdx`)
-  );
+  const mdxPath = path.join(process.env.ARTICLES_PATH!, `${params!.slug}.mdx`);
+
+  const { data } = matter.read(mdxPath);
+
   return {
     props: {
       data: JSON.parse(JSON.stringify(data)),
-      file: `${params!.slug}.mdx`,
+      name: params!.slug,
     },
   };
 };

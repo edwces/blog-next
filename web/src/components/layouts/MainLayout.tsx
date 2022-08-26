@@ -10,7 +10,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <div className="flex flex-col min-h-screen">
       <MainHeader />
-      <main className="bg-gray-200 flex-grow">{children}</main>
+      <main className="flex flex-col flex-grow">{children}</main>
       <MainFooter />
     </div>
   );

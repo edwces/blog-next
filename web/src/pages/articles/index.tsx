@@ -3,22 +3,14 @@ import { ArticleMetadata } from "../../types/article-metadata";
 import * as path from "node:path";
 import * as fs from "node:fs/promises";
 import * as matter from "gray-matter";
-import { ArticleItem } from "../../components/article/ArticleItem";
+import { ArticleList } from "../../components/article/ArticleList";
 
 type ArticlesProps = { articles: ArticleMetadata[] };
 
 const Articles: NextPage<ArticlesProps> = ({ articles }) => {
   return (
-    <div className="p-20 flex flex-col gap-5">
-      {articles.map((article) => (
-        <ArticleItem
-          key={article.title}
-          title={article.title}
-          description={article.description}
-          date={article.date}
-          author={article.author}
-        />
-      ))}
+    <div className="bg-slate-200 p-20 flex-grow">
+      <ArticleList articles={articles} />
     </div>
   );
 };
