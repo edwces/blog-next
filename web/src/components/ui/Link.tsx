@@ -9,7 +9,7 @@ type LinkProps = DetailedHTMLProps<
 export const Link = ({ children, href = "#", ...props }: LinkProps) => {
   return (
     <NextLink href={href} passHref>
-      <a {...props} className="bg-secondary-200 text-secondary-700">
+      <a {...props} className="border-b-2 border-secondary-500">
         {children}
       </a>
     </NextLink>

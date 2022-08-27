@@ -9,7 +9,7 @@ type ArticlesProps = { articles: ArticleMetadata[] };
 
 const Articles: NextPage<ArticlesProps> = ({ articles }) => {
   return (
-    <div className="bg-slate-200 p-20 flex-grow">
+    <div className="p-20 flex-grow">
       <ArticleList articles={articles} />
     </div>
   );

@@ -11,19 +11,15 @@ const Document = () => {
           crossOrigin=""
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap"
           rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/ir-black.min.css"
         />
         <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark.min.css"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </Head>
-      <body>
+      <body className="text-gray-200">
         <Main />
         <NextScript />
       </body>

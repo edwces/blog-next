@@ -6,7 +6,12 @@ type HeaderProps = DetailedHTMLProps<
 >;
 
 const H1 = (props: HeaderProps) => {
-  return <h1 className="my-8 font-header font-bold text-3xl" {...props} />;
+  return (
+    <h1
+      className="my-8 text-secondary-600 font-header font-bold text-4xl"
+      {...props}
+    />
+  );
 };
 
 const H2 = (props: HeaderProps) => {

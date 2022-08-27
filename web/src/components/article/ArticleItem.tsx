@@ -13,14 +13,16 @@ export const ArticleItem = ({
   author,
 }: ArticleItemProps) => {
   return (
-    <article className="p-5 rounded-lg bg-white">
+    <article className="transition ease-in-out duration-150 group p-5 border-2 border-primary hover:border-secondary-600">
       <Link href={`/articles/${title}`} passHref>
         <a className="flex flex-col gap-1 justify-start">
-          <h1 className="font-header font-bold text-2xl">{title}</h1>
+          <h1 className="font-header font-bold text-2xl group-hover:text-secondary-600">
+            {title}
+          </h1>
           <p className="font-medium">
             {author} on {new Date(date).toLocaleDateString()}
           </p>
-          <p className="text-gray-500">{description}</p>
+          <p className="text-gray-400">{description}</p>
         </a>
       </Link>
     </article>

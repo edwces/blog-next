@@ -7,12 +7,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Roboto", ...defaultTheme.fontFamily.sans],
-        header: ["Montserrat"],
+        sans: ["Inconsolata", ...defaultTheme.fontFamily.sans],
+        header: ["Inconsolata"],
       },
       colors: {
-        primary: colors.green,
-        secondary: colors.violet,
+        primary: colors.white,
+        secondary: colors.green,
       },
     },
   },
