@@ -14,8 +14,8 @@ const navItems = [
 export const MainHeader = () => {
   return (
     <header className="p-5 bg-black">
-      <div className="flex justify-between">
-        <h1>Edwces</h1>
+      <div className="flex justify-between items-center">
+        <h1 className="text-4xl">Edwces</h1>
         <div className="flex gap-2">
           {navItems.map((item) => (
             <Link href={item.href} key={item.href} passHref>
