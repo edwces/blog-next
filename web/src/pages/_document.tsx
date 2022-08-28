@@ -11,15 +11,16 @@ const Document = () => {
           crossOrigin=""
         />
         <link
+          href="https://unpkg.com/nord-highlightjs@0.1.0/dist/nord.css"
           rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/ir-black.min.css"
+          type="text/css"
         />
         <link
           href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </Head>
-      <body className="text-gray-200">
+      <body className="text-white">
         <Main />
         <NextScript />
       </body>
