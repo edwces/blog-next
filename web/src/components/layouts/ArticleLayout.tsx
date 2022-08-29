@@ -10,7 +10,7 @@ interface ArticleLayoutProps {
 
 export const ArticleLayout = ({ children, meta }: ArticleLayoutProps) => {
   return (
-    <section className="p-20">
+    <section className="py-10">
       <Head>
         <title>{meta.title}</title>
         <meta property="description" content={meta.description} />
@@ -34,7 +34,7 @@ export const ArticleLayout = ({ children, meta }: ArticleLayoutProps) => {
           })}
         </script>
       </Head>
-      <div className="flex flex-col gap-1">
+      <div className="flex break-words flex-col gap-1 mx-[10vw]">
         <ArticleTitle {...meta} />
         {children}
       </div>
