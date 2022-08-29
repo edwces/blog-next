@@ -7,7 +7,7 @@ import { getArticleSlugs } from "../../utils/article.utils";
 import { evaluateSync } from "@mdx-js/mdx";
 import remarkFrontmatter from "remark-frontmatter";
 import rehypeHighlight from "rehype-highlight";
-import provider from "@mdx-js/react";
+import provider, { useMDXComponents } from "@mdx-js/react";
 import runtime from "react/jsx-runtime";
 
 type ArticleProps = { data: ArticleMetadata; content: string };
@@ -17,6 +17,7 @@ const Article: NextPage<ArticleProps> = ({ data, content }) => {
   const MDX = evaluateSync(content, {
     ...provider,
     ...runtime,
+    useMDXComponents: useMDXComponents,
     remarkPlugins: [remarkFrontmatter],
     rehypePlugins: [rehypeHighlight],
   } as any);
