@@ -16,7 +16,7 @@ export const ArticleItem = ({
     <article className="transition ease-in-out duration-150 group p-5 border-2 border-primary hover:border-secondary">
       <Link href={`/articles/${title}`} passHref>
         <a className="flex flex-col gap-1 justify-start">
-          <h1 className="font-header font-bold text-2xl group-hover:text-secondary">
+          <h1 className="transition ease-in-out duration-150 font-header font-bold text-2xl group-hover:text-secondary">
             {title}
           </h1>
           <p className="font-medium">
