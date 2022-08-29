@@ -4,16 +4,26 @@ import * as path from "path";
 import matter from "gray-matter";
 import { ArticleLayout } from "../../components/layouts/ArticleLayout";
 import { getArticleSlugs } from "../../utils/article.utils";
-import dynamic from "next/dynamic";
+import { evaluateSync } from "@mdx-js/mdx";
+import remarkFrontmatter from "remark-frontmatter";
+import rehypeHighlight from "rehype-highlight";
+import provider from "@mdx-js/react";
+import runtime from "react/jsx-runtime";
 
-type ArticleProps = { data: ArticleMetadata; name: string };
+type ArticleProps = { data: ArticleMetadata; content: string };
 
-const Article: NextPage<ArticleProps> = ({ data, name }) => {
-  const MDX = dynamic(() => import(`../../articles/${name}.mdx`));
+const Article: NextPage<ArticleProps> = ({ data, content }) => {
+  // Compile and Evaluate JSX from MDX content
+  const MDX = evaluateSync(content, {
+    ...provider,
+    ...runtime,
+    remarkPlugins: [remarkFrontmatter],
+    rehypePlugins: [rehypeHighlight],
+  } as any);
 
   return (
     <ArticleLayout meta={data}>
-      <MDX />
+      <MDX.default />
     </ArticleLayout>
   );
 };
@@ -21,12 +31,12 @@ const Article: NextPage<ArticleProps> = ({ data, name }) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const mdxPath = path.join(process.env.ARTICLES_PATH!, `${params!.slug}.mdx`);
 
-  const { data } = matter.read(mdxPath);
+  const { data, content } = matter.read(mdxPath);
 
   return {
     props: {
       data: JSON.parse(JSON.stringify(data)),
-      name: params!.slug,
+      content,
     },
   };
 };

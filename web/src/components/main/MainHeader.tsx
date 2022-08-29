@@ -23,8 +23,8 @@ export const MainHeader = () => {
         <nav>
           <ul className="flex gap-2">
             {navItems.map((item) => (
-              <li>
-                <Link href={item.href} key={item.href} passHref>
+              <li key={item.href}>
+                <Link href={item.href} passHref>
                   <a className="transition ease-in-out duration-150 p-2 rounded-md hover:text-yellow">
                     {item.label}
                   </a>
