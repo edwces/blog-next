@@ -1,18 +1,19 @@
-import Link from "next/link";
+import { HamburgerButton } from "./HamburgerButton";
 import { TriangleIcon } from "../ui/icons/Triangle";
+import { NavigationList } from "./NavigationList";
+import { NAV_ITEMS } from "./constants";
 
-const navItems = [
-  {
-    href: "/",
-    label: "About me",
-  },
-  {
-    href: "/articles",
-    label: "Articles",
-  },
-];
+interface MainHeaderProps {
+  isHamburgerVisible?: boolean;
+  isHamburgerOpen?: boolean;
+  onHamburgerClick?: () => void;
+}
 
-export const MainHeader = () => {
+export const MainHeader = ({
+  isHamburgerVisible = false,
+  isHamburgerOpen = false,
+  onHamburgerClick,
+}: MainHeaderProps) => {
   return (
     <header className="p-5 bg-black">
       <div className="flex justify-between items-center">
@@ -20,19 +21,13 @@ export const MainHeader = () => {
           <TriangleIcon />
           <h1 className="text-4xl">Edwces</h1>
         </div>
-        <nav>
-          <ul className="flex gap-2">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} passHref>
-                  <a className="transition ease-in-out duration-150 p-2 rounded-md hover:text-yellow">
-                    {item.label}
-                  </a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <NavigationList items={NAV_ITEMS} direction="row" />
+        {isHamburgerVisible && (
+          <HamburgerButton
+            isOpen={isHamburgerOpen}
+            onClick={onHamburgerClick}
+          />
+        )}
       </div>
     </header>
   );
