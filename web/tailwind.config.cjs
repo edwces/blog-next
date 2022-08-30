@@ -13,6 +13,8 @@ module.exports = {
       colors: {
         black: "#2E3440",
         lighter: "#3B4252",
+        3: "#434C5E",
+        4: "#4C566A",
         white: "#ECEFF4",
         dimmed: colors.gray[400],
         primary: "#88C0D0",
