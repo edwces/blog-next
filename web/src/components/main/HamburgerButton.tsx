@@ -11,7 +11,7 @@ export const HamburgerButton = ({
 
   return (
     <button
-      className="flex flex-col p-2 gap-1.5 border-2 border-yellow"
+      className="flex flex-col p-2 gap-1.5 border-2 border-anchor"
       onClick={onClick}
     >
       <div className={`${line} ${isOpen && "rotate-45 translate-y-2"}`} />

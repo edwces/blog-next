@@ -14,14 +14,14 @@ export const NavigationList = ({
   return (
     <nav>
       <ul
-        className={`flex gap-2 items-center ${
+        className={`flex gap-5 items-center ${
           direction === "column" && "flex-col"
         }`}
       >
         {items.map((item) => (
           <li key={item.href}>
             <Link href={item.href} passHref>
-              <a className="transition ease-in-out duration-150 p-2 rounded-md hover:text-yellow">
+              <a className="transition text-lg ease-in-out duration-150 border-b-2 border-transparent hover:border-anchor hover:text-anchor">
                 {item.label}
               </a>
             </Link>

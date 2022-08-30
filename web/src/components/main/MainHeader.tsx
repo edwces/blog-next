@@ -16,7 +16,7 @@ export const MainHeader = ({
 }: MainHeaderProps) => {
   return (
     <header className="p-5 bg-black">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center px-5">
         <div className="flex gap-5 items-center">
           <TriangleIcon />
           <h1 className="text-4xl">Edwces</h1>

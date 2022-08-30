@@ -11,7 +11,7 @@ export const Link = ({ children, href = "#", ...props }: LinkProps) => {
     <NextLink href={href} passHref>
       <a
         {...props}
-        className="text-yellow transition ease-in-out duration-200 border-b-2 border-transparent hover:border-yellow"
+        className="text-anchor transition ease-in-out duration-200 border-b-2 border-transparent hover:border-anchor"
       >
         {children}
       </a>

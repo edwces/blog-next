@@ -20,7 +20,7 @@ const Document = () => {
           rel="stylesheet"
         />
       </Head>
-      <body className="text-white selection:text-lighter selection:bg-secondary">
+      <body className="text-white selection:text-black-2 selection:bg-interactive">
         <Main />
         <NextScript />
       </body>

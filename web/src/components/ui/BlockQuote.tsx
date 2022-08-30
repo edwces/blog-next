@@ -9,7 +9,7 @@ export const BlockQuote = (props: BlockQuoteProps) => {
   return (
     <blockquote
       {...props}
-      className="bg-lighter pl-4 border-l-4 border-secondary"
+      className="bg-black-2 pl-4 border-l-4 border-interactive"
     ></blockquote>
   );
 };

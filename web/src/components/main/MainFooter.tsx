@@ -11,12 +11,12 @@ export const MainFooter = () => {
         <div className="flex gap-5">
           <Link href={Links.GITHUB} passHref>
             <a>
-              <GithubIcon className="transition ease-in-out duration-150 hover:fill-secondary" />
+              <GithubIcon className="transition ease-in-out duration-150 hover:fill-interactive" />
             </a>
           </Link>
           <Link href={Links.RSS} passHref>
             <a>
-              <RSSIcon className="transition ease-in-out duration-150 hover:fill-secondary" />
+              <RSSIcon className="transition ease-in-out duration-150 hover:fill-interactive" />
             </a>
           </Link>
         </div>
