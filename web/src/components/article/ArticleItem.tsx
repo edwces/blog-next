@@ -14,7 +14,7 @@ export const ArticleItem = ({
 }: ArticleItemProps) => {
   return (
     <article className="transition ease-in-out duration-150 group p-5 border-2 border-primary hover:border-secondary">
-      <Link href={`/articles/${title}`} passHref>
+      <Link href={`/articles/${title.replaceAll(" ", "-")}`} passHref>
         <a className="flex flex-col gap-1 justify-start">
           <h1 className="transition ease-in-out duration-150 font-header font-bold text-2xl group-hover:text-secondary">
             {title}

@@ -18,7 +18,10 @@ const H2 = ({ children, ...props }: HeaderProps) => {
       id={anchor}
       {...props}
     >
-      <a className="hover:border-b-2 hover:border-primary" href={`#${anchor}`}>
+      <a
+        className="transition ease-in-out duration-200 border-b-2 border-transparent hover:border-primary"
+        href={`#${anchor}`}
+      >
         {children}
       </a>
     </h2>

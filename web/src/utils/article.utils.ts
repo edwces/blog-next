@@ -8,7 +8,7 @@ export const getArticleSlugs = async (dirname: string) => {
   const files = await fs.readdir(dirname);
   const slugs = files.map((file) => {
     const meta = matter.read(path.join(dirname, file));
-    const uri = encodeURI(meta.data.title);
+    const uri = meta.data.title.replaceAll(" ", "-");
     return uri;
   });
   return slugs;
