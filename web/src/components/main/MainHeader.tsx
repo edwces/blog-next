@@ -2,18 +2,29 @@ import { HamburgerButton } from "./HamburgerButton";
 import { TriangleIcon } from "../ui/icons/Triangle";
 import { NavigationList } from "./NavigationList";
 import { NAV_ITEMS } from "./constants";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 interface MainHeaderProps {
-  isHamburgerVisible?: boolean;
   isHamburgerOpen?: boolean;
   onHamburgerClick?: () => void;
 }
 
+const HEADER_BREAKPOINT = 700;
+
 export const MainHeader = ({
-  isHamburgerVisible = false,
   isHamburgerOpen = false,
   onHamburgerClick,
 }: MainHeaderProps) => {
+  const size = useWindowSize();
+
+  const NavPresenter = () => {
+    if (size.width > HEADER_BREAKPOINT)
+      return <NavigationList items={NAV_ITEMS} direction="row" />;
+    return (
+      <HamburgerButton isOpen={isHamburgerOpen} onClick={onHamburgerClick} />
+    );
+  };
+
   return (
     <header className="p-5 bg-black">
       <div className="flex justify-between items-center px-5">
@@ -21,13 +32,7 @@ export const MainHeader = ({
           <TriangleIcon />
           <h1 className="text-4xl">Edwces</h1>
         </div>
-        <NavigationList items={NAV_ITEMS} direction="row" />
-        {isHamburgerVisible && (
-          <HamburgerButton
-            isOpen={isHamburgerOpen}
-            onClick={onHamburgerClick}
-          />
-        )}
+        {size.width !== 0 && NavPresenter()}
       </div>
     </header>
   );
