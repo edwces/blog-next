@@ -25,10 +25,15 @@ const Articles: NextPage<ArticlesProps> = ({ articles }) => {
 
 export const getStaticProps: GetStaticProps<ArticlesProps> = async () => {
   const files = await fs.readdir(process.env.ARTICLES_PATH!);
-  const articles = files.map((filename) => {
-    return matter.read(path.join(process.env.ARTICLES_PATH!, filename))
-      .data as ArticleMetadata;
-  });
+  const sortByLatest = (a: ArticleMetadata, b: ArticleMetadata) =>
+    new Date(b.date).getTime() - new Date(a.date).getTime();
+
+  const articles = files
+    .map((filename) => {
+      return matter.read(path.join(process.env.ARTICLES_PATH!, filename))
+        .data as ArticleMetadata;
+    })
+    .sort(sortByLatest);
   const rss = await getRSSFeedFromArticles(articles);
   const xmlContent = `<?xml version="1.0" encoding="UTF-8" ?>${rss}`;
   await fs.writeFile("./public/rss.xml", xmlContent);
