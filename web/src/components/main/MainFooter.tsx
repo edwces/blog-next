@@ -1,12 +1,11 @@
-import { useWindowSize } from "../../hooks/useWindowSize";
-import { BREAKPOINT, LARGE_ICON, MEDIUM_ICON } from "./constants";
+import { LARGE_ICON, MEDIUM_ICON } from "./constants";
 import { IconLinksList } from "./IconLinksList";
 
-export const MainFooter = () => {
-  const size = useWindowSize();
+interface MainFooterProps {
+  isAboveBreakpoint?: boolean;
+}
 
-  const isAboveBreakpoint = size.width !== 0 && size.width > BREAKPOINT;
-
+export const MainFooter = ({ isAboveBreakpoint = false }: MainFooterProps) => {
   return (
     <footer className="p-7 bg-black">
       <div

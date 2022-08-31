@@ -5,11 +5,15 @@ type NavItem = { href: string; label: string };
 interface NavigationListProps {
   items?: NavItem[];
   direction?: "row" | "column";
+  variant?: "list" | "dropdown";
+  onLinkClick?: () => void;
 }
 
 export const NavigationList = ({
   items = [],
   direction = "row",
+  variant = "list",
+  onLinkClick,
 }: NavigationListProps) => {
   return (
     <nav>
@@ -21,10 +25,18 @@ export const NavigationList = ({
         {items.map((item) => (
           <li key={item.href}>
             <Link href={item.href} passHref>
-              <a className="transition text-lg ease-in-out duration-150 border-b-2 border-transparent hover:border-anchor hover:text-anchor">
+              <a
+                onClick={onLinkClick}
+                className={`transition ${
+                  variant === "dropdown" ? "text-4xl" : "text-lg"
+                } ease-in-out duration-150 border-b-2 border-transparent hover:border-anchor hover:text-anchor`}
+              >
                 {item.label}
               </a>
             </Link>
+            {variant === "dropdown" && (
+              <div className="border-b-2 border-primary -mx-5 mt-5" />
+            )}
           </li>
         ))}
       </ul>
