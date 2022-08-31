@@ -17,7 +17,7 @@ export const MainHeader = ({
   onHamburgerClick,
 }: MainHeaderProps) => {
   return (
-    <header className="p-5 bg-black">
+    <header className="py-5 px-2 md:px-5 bg-black">
       <div className="flex justify-between items-center px-5">
         <div className="flex gap-5 items-center">
           <TriangleIcon />

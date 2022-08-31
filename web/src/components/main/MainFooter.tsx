@@ -13,7 +13,9 @@ export const MainFooter = ({ isAboveBreakpoint = false }: MainFooterProps) => {
           isAboveBreakpoint || "flex-col-reverse gap-8"
         }`}
       >
-        <p className="text-dimmed">This website was created with next.js</p>
+        <p className="text-dimmed text-center">
+          This website was created with next.js
+        </p>
         <IconLinksList size={isAboveBreakpoint ? MEDIUM_ICON : LARGE_ICON} />
       </div>
     </footer>

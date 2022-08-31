@@ -16,7 +16,7 @@ const Articles: NextPage<ArticlesProps> = ({ articles }) => {
         <title>Edwces - Articles</title>
         <meta name="description" content="List of all my articles" />
       </Head>
-      <div className="p-20 flex-grow">
+      <div className="py-8 px-5 sm:px-10 sm:py-14 md:px-20 md:py-20 flex-grow">
         <ArticleList articles={articles} />
       </div>
     </>

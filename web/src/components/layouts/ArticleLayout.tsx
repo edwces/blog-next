@@ -10,7 +10,7 @@ interface ArticleLayoutProps {
 
 export const ArticleLayout = ({ children, meta }: ArticleLayoutProps) => {
   return (
-    <section className="px-5 py-10 max-w-4xl mx-auto">
+    <div className="px-5 py-10 max-w-4xl mx-auto">
       <Head>
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
@@ -38,6 +38,6 @@ export const ArticleLayout = ({ children, meta }: ArticleLayoutProps) => {
         <ArticleTitle {...meta} />
         {children}
       </div>
-    </section>
+    </div>
   );
 };
