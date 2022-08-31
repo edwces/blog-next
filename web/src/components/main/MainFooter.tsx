@@ -1,25 +1,21 @@
-import Link from "next/link";
-import { Links } from "../../types/links";
-import { GithubIcon } from "../ui/icons/GithubIcon";
-import { RSSIcon } from "../ui/icons/RSSIcon";
+import { useWindowSize } from "../../hooks/useWindowSize";
+import { BREAKPOINT, LARGE_ICON, MEDIUM_ICON } from "./constants";
+import { IconLinksList } from "./IconLinksList";
 
 export const MainFooter = () => {
+  const size = useWindowSize();
+
+  const isAboveBreakpoint = size.width !== 0 && size.width > BREAKPOINT;
+
   return (
     <footer className="p-7 bg-black">
-      <div className="flex justify-between items-center">
+      <div
+        className={`flex justify-between items-center ${
+          isAboveBreakpoint || "flex-col-reverse gap-8"
+        }`}
+      >
         <p className="text-dimmed">This website was created with next.js</p>
-        <div className="flex gap-5">
-          <Link href={Links.GITHUB} passHref>
-            <a>
-              <GithubIcon className="transition ease-in-out duration-150 hover:fill-interactive" />
-            </a>
-          </Link>
-          <Link href={Links.RSS} passHref>
-            <a>
-              <RSSIcon className="transition ease-in-out duration-150 hover:fill-interactive" />
-            </a>
-          </Link>
-        </div>
+        <IconLinksList size={isAboveBreakpoint ? MEDIUM_ICON : LARGE_ICON} />
       </div>
     </footer>
   );

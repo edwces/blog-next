@@ -1,15 +1,13 @@
 import { HamburgerButton } from "./HamburgerButton";
 import { TriangleIcon } from "../ui/icons/Triangle";
 import { NavigationList } from "./NavigationList";
-import { NAV_ITEMS } from "./constants";
+import { BREAKPOINT, NAV_ITEMS } from "./constants";
 import { useWindowSize } from "../../hooks/useWindowSize";
 
 interface MainHeaderProps {
   isHamburgerOpen?: boolean;
   onHamburgerClick?: () => void;
 }
-
-const HEADER_BREAKPOINT = 700;
 
 export const MainHeader = ({
   isHamburgerOpen = false,
@@ -18,7 +16,7 @@ export const MainHeader = ({
   const size = useWindowSize();
 
   const NavPresenter = () => {
-    if (size.width > HEADER_BREAKPOINT)
+    if (size.width > BREAKPOINT)
       return <NavigationList items={NAV_ITEMS} direction="row" />;
     return (
       <HamburgerButton isOpen={isHamburgerOpen} onClick={onHamburgerClick} />
