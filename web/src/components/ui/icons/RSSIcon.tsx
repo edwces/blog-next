@@ -8,6 +8,7 @@ export const RSSIcon = ({ size = 30, className }: IconProps) => {
       viewBox="0 0 24 24"
       className={`fill-white ${className}`}
     >
+      <title>RSS</title>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

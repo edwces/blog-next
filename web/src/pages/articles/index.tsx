@@ -5,14 +5,21 @@ import * as fs from "node:fs/promises";
 import * as matter from "gray-matter";
 import { ArticleList } from "../../components/article/ArticleList";
 import { getRSSFeedFromArticles } from "../../utils/article.utils";
+import Head from "next/head";
 
 type ArticlesProps = { articles: ArticleMetadata[] };
 
 const Articles: NextPage<ArticlesProps> = ({ articles }) => {
   return (
-    <div className="p-20 flex-grow">
-      <ArticleList articles={articles} />
-    </div>
+    <>
+      <Head>
+        <title>Edwces - Articles</title>
+        <meta name="description" content="List of all my articles" />
+      </Head>
+      <div className="p-20 flex-grow">
+        <ArticleList articles={articles} />
+      </div>
+    </>
   );
 };
 

@@ -4,12 +4,14 @@ import { NavigationList } from "./NavigationList";
 import { NAV_ITEMS } from "./constants";
 
 interface MainHeaderProps {
+  isValidSize: boolean;
   isAboveBreakpoint?: boolean;
   isHamburgerOpen?: boolean;
   onHamburgerClick?: () => void;
 }
 
 export const MainHeader = ({
+  isValidSize,
   isAboveBreakpoint = false,
   isHamburgerOpen = false,
   onHamburgerClick,
@@ -21,14 +23,15 @@ export const MainHeader = ({
           <TriangleIcon />
           <h1 className="text-4xl">Edwces</h1>
         </div>
-        {!isAboveBreakpoint ? (
-          <HamburgerButton
-            isOpen={isHamburgerOpen}
-            onClick={onHamburgerClick}
-          />
-        ) : (
-          <NavigationList items={NAV_ITEMS} />
-        )}
+        {isValidSize &&
+          (!isAboveBreakpoint ? (
+            <HamburgerButton
+              isOpen={isHamburgerOpen}
+              onClick={onHamburgerClick}
+            />
+          ) : (
+            <NavigationList items={NAV_ITEMS} />
+          ))}
       </div>
     </header>
   );

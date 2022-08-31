@@ -8,6 +8,7 @@ export const TriangleIcon = ({ size = 30, className }: IconProps) => {
       viewBox="0 0 24 24"
       className={`fill-white ${className}`}
     >
+      <title>Triangle</title>
       <path d="M24 22h-24l12-20z" />
     </svg>
   );

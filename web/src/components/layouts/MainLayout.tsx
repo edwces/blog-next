@@ -12,7 +12,8 @@ interface MainLayoutProps {
 export const MainLayout = ({ children }: MainLayoutProps) => {
   const size = useWindowSize();
   const [isHamburgerOpen, setHamburgerOpen] = useState(false);
-  const isAboveBreakpoint = size.width !== 0 && size.width > BREAKPOINT;
+  const isValidSize = size.width !== 0;
+  const isAboveBreakpoint = size.width > BREAKPOINT;
 
   // Hide NavigationDropdown if we resize window to aboveBreakpoint
   // while having hamburger open
@@ -36,6 +37,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <div className="flex flex-col min-h-screen">
       <MainHeader
+        isValidSize={isValidSize}
         isAboveBreakpoint={isAboveBreakpoint}
         isHamburgerOpen={isHamburgerOpen}
         onHamburgerClick={() => setHamburgerOpen(!isHamburgerOpen)}
@@ -45,7 +47,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
           ? NavigationDropdown()
           : children}
       </main>
-      <MainFooter isAboveBreakpoint={isAboveBreakpoint} />
+      {isValidSize && <MainFooter isAboveBreakpoint={isAboveBreakpoint} />}
     </div>
   );
 };

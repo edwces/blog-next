@@ -13,7 +13,7 @@ export const ArticleLayout = ({ children, meta }: ArticleLayoutProps) => {
     <section className="px-5 py-10 max-w-4xl mx-auto">
       <Head>
         <title>{meta.title}</title>
-        <meta property="description" content={meta.description} />
+        <meta name="description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:type" content="article" />
         <meta property="og:article:published_time" content={meta.date} />
